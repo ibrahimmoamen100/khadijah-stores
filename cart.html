@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2 group">
+                    <span class="text-2xl md:text-3xl transform group-hover:scale-110 transition-transform duration-200">🛍️</span>
+                    <span class="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        ShopHub
+                    </span>
+                </a>
+
+                <!-- Cart Count -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-gray-600 hover:text-gray-800 transition-colors">
+                        <i class="fas fa-home mr-1"></i>Home
+                    </a>
+                    <a href="cart.html" class="text-blue-600 font-semibold">
+                        <i class="fas fa-shopping-cart mr-1"></i>Cart
+                        <span id="cart-count" class="bg-red-500 text-white px-2 py-1 rounded-full text-xs"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 pt-20 pb-8">
+        <h1 class="text-2xl md:text-3xl font-bold mb-8 text-gray-800">Shopping Cart</h1>
+
+        <!-- Cart Content -->
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Cart Items -->
+            <div class="flex-1">
+                <div id="cart-items" class="space-y-4">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+
+                <!-- Empty Cart State -->
+                <div id="empty-cart" class="hidden bg-white rounded-lg shadow-md p-8 text-center">
+                    <div class="flex flex-col items-center space-y-4">
+                        <i class="fas fa-shopping-cart text-4xl text-gray-400"></i>
+                        <h2 class="text-xl font-semibold text-gray-800">Your cart is empty</h2>
+                        <p class="text-gray-600">Add some items to your cart to get started!</p>
+                        <a href="index.html" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center space-x-2">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Continue Shopping</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="lg:w-96">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+                    <h2 class="text-lg font-semibold mb-4">Order Summary</h2>
+                    
+                    <!-- Summary Details -->
+                    <div class="space-y-4">
+                        <div class="flex justify-between text-gray-600">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-gray-600">
+                            <span>Shipping</span>
+                            <span class="text-green-600">Free</span>
+                        </div>
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-semibold">Total</span>
+                                <span id="total" class="text-xl font-bold text-blue-600">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Button -->
+                    <button id="checkout-button" 
+                        class="w-full mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Checkout via WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Item Template -->
+    <template id="cart-item-template">
+        <div class="cart-item bg-white rounded-lg shadow-md p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <!-- Product Image -->
+            <div class="relative w-24 h-24 flex-shrink-0">
+                <img class="w-full h-full object-cover rounded-lg" src="" alt="">
+            </div>
+
+            <!-- Product Details -->
+            <div class="flex-1 min-w-0">
+                <h3 class="text-lg font-semibold text-gray-800 truncate"></h3>
+                <div class="mt-1 space-y-1">
+                    <p class="text-sm text-gray-600">Size: <span class="selected-size"></span></p>
+                    <p class="text-sm text-gray-600">Color: <span class="selected-color"></span></p>
+                </div>
+            </div>
+
+            <!-- Quantity Controls -->
+            <div class="flex items-center space-x-2">
+                <button class="decrease-quantity px-3 py-1 border rounded-lg hover:bg-gray-100 transition-colors">-</button>
+                <span class="quantity-display px-4">1</span>
+                <button class="increase-quantity px-3 py-1 border rounded-lg hover:bg-gray-100 transition-colors">+</button>
+            </div>
+
+            <!-- Price and Remove -->
+            <div class="flex flex-col items-end space-y-2">
+                <span class="item-price font-semibold text-gray-800"></span>
+                <button class="remove-item text-red-600 hover:text-red-700 transition-colors text-sm flex items-center space-x-1">
+                    <i class="fas fa-trash"></i>
+                    <span>Remove</span>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <script src="cart.js"></script>
+</body>
+</html>
+
+                    <!-- Thumbnail Gallery -->
+                    <div id="image-thumbnails" class="flex gap-2 mt-4 overflow-x-auto py-2">
+                        <!-- Thumbnails will be added here -->
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="w-full md:w-1/2">
+                    <h2 id="modal-product-name" class="text-2xl font-bold mb-4"></h2>
+                    <p id="modal-product-description" class="text-gray-600 mb-4"></p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold">Price:</span>
+                            <span id="modal-product-price" class="text-xl text-blue-600"></span>
+                        </div>
+                        
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold">Size:</span>
+                            <span id="modal-product-size" class="px-3 py-1 bg-gray-100 rounded-full"></span>
+                        </div>
+                        
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold">Color:</span>
+                            <div id="modal-product-color" class="w-6 h-6 rounded-full border"></div>
+                        </div>
+                        
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold">Quantity:</span>
+                            <span id="modal-product-quantity"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

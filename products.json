@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1733961805489",
+    "name": "Ibrahim Muhammad Abdul-Moamen",
+    "price": 4545,
+    "description": "44654fghfghgf",
+    "category": "hjfgsd",
+    "sizes": [
+      "xxl",
+      "xl"
+    ],
+    "colors": [
+      "#000000",
+      "#e54848"
+    ],
+    "images": [
+      "/images/1733961805484-981340162.jpg",
+      "/images/1733961805485-688143291.jpg"
+    ],
+    "dateAdded": "2024-12-12T00:03:25.489Z"
+  },
+  {
+    "id": "1733966401078",
+    "name": "asdasd asdasd",
+    "price": 4545,
+    "description": "asda",
+    "category": "hjfgsd",
+    "sizes": [
+      "xxl"
+    ],
+    "colors": [
+      "#000000"
+    ],
+    "images": [
+      "/images/1733966401070-243737411.jpg",
+      "/images/1733966401072-775976474.jpg"
+    ],
+    "dateAdded": "2024-12-12T01:20:01.078Z"
+  },
+  {
+    "id": "1733966698144",
+    "name": "5dfgdf",
+    "price": 424,
+    "description": "sdsfsdfasf",
+    "category": "xcsa",
+    "sizes": [
+      "sc"
+    ],
+    "colors": [
+      "#000000"
+    ],
+    "images": [
+      "/images/1733966698139-676757614.jpg",
+      "/images/1733966698140-745286922.jpg"
+    ],
+    "dateAdded": "2024-12-12T01:24:58.144Z"
+  }
+]
